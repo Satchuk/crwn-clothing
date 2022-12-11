@@ -5,21 +5,23 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { UserProvider } from './contexts/context.component';
-import { Categoryprovider } from './contexts/category.context';
+// import { Categoryprovider } from './contexts/category.context';
 import { CartProvider } from './contexts/cart.context';
+import { Store } from './store/store';
+import { Provider } from 'react-redux';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <Provider store={Store}>
     <BrowserRouter>
       <UserProvider>
-        <Categoryprovider>
           <CartProvider>
             <App />
           </CartProvider>
-        </Categoryprovider>
       </UserProvider>
     </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );
 

@@ -8,10 +8,12 @@ import { signoutUser } from "../../utils/firebase/firebaseUtils";
 import { CartIcon } from "../../Components/cartIcon/cartIncon.component";
 import { Cartdropdown } from "../../Components/cartDropdown/cartdropdown.component";
 import { CartContext } from "../../contexts/cart.context";
-export const Naviagtion =()=>{
-    const {currentuser,} = useContext(UserContext);
-    const {isCartOpen} = useContext(CartContext);
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "../../store/user/user.selector";
 
+export const Naviagtion =()=>{
+   const currentuser = useSelector(selectCurrentUser);
+   const {isCartOpen} = useContext(CartContext);
   
     return(
         <Fragment>
